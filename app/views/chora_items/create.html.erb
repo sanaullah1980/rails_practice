@@ -1,0 +1,32 @@
+<%= link_to("<< Back to the Item List", {:action => 'index'}, :class => 'back-to-index-page') %>
+<div class="error">
+  <p><%=@chora_item.errors.full_messages%></p>
+</div>
+<div class="add new item">
+  <h2>Add New Item</h2>
+  <%= form_for(:chora_item, :url => {:action => 'add'}) do |f| %>
+      <table>
+        <tr>
+          <th>Name</th>
+          <td><%= f.text_field :title,:value=> 'test'%></td>
+        </tr>
+        <tr>
+          <th>City</th>
+          <td><%= f.text_field :city %></td>
+        </tr>
+        <tr>
+          <th>Price</th>
+          <td><%= f.text_field :price %></td>
+        </tr>
+        <tr>
+          <th>Last updated</th>
+          <td><%= f.text_field :created_at %></td>
+        </tr>
+      </table>
+
+     <div class="add-item">
+       <%=submit_tag ("Add New") %>
+     </div>
+
+  <% end %>
+</div>
